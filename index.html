@@ -10,7 +10,7 @@
     <p><b>alamat:</b> <span id="A3"></span></p>
 
     <button onclick="loadDoc('')">Lihat Data</button>
-    <button onclick="loadDoc('')">Tampilkan List Judul Buku</button>
+    <button onclick="loadJudulData('')">Tampilkan List Judul Buku</button>
 
     <script>
       function loadDoc() {
@@ -24,6 +24,27 @@
           document.getElementById("A1").innerHTML = namaToko;
           document.getElementById("A2").innerHTML = pengarang;
           document.getElementById("A3").innerHTML = alamat;
+        };
+        xhttp.open("GET", "data.json", true);
+        xhttp.send();
+      }
+
+      function loadJudulData() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function () {
+          const jsonData = JSON.parse(this.responseText);
+          const bookList = jsonData.judul;
+
+          let table = "<table border='1'><tr><th>Judul Buku</th></tr>";
+          for (let i = 0; i < bookList.length; i++) {
+            table += "<tr><td>" + bookList[i] + "</td></tr>";
+          }
+          table += "</table>";
+
+          document.getElementById("bookList").innerHTML = table;
+          document.getElementById("A1").innerHTML = ""; // Kosongkan konten nama toko
+          document.getElementById("A2").innerHTML = ""; // Kosongkan konten pengarang
+          document.getElementById("A3").innerHTML = ""; // Kosongkan konten alamat
         };
         xhttp.open("GET", "data.json", true);
         xhttp.send();
