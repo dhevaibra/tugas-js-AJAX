@@ -1,0 +1,12 @@
+{
+  "namaToko": "Togas Mas Buku",
+  "pengarang": "Informatika",
+  "alamat": "Jalan Ijen no 22, Malang",
+  "judul": [
+    "Pemrograman Python untuk Pemula",
+    "Desain Web dengan HTML, CSS, dan JavaScript",
+    "Membangun Aplikasi Android dengan Java",
+    "Algoritma dan Struktur Data untuk Pemula",
+    "Database MySQL untuk Pemula"
+  ]
+}
